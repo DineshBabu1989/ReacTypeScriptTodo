@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import TodoInput from "./components/TodoInput";
+import TodoList from './components/TodoList';
+import { Todo, AddTodo, DeleteTodo, CompleteTodo } from "./types";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  const [todos, setTodos] = React.useState<Todo[] | []>([]);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  const addTodo: AddTodo = (text: string) => {
+    const newTodo = { text, completed: false };
+    setTodos([...todos, newTodo]);
+  };
+
+  const deleteTodo: DeleteTodo = (index: number) => {
+    const array = [...todos];
+    array.splice(index, 1);
+    setTodos([...array]);
+  };
+
+  const completeTodo: CompleteTodo = (index: number) => {
+    const todo = todos[index];
+    todo.completed = !todo.completed;
+    setTodos([...todos]);
+  };
+
+  return (
+    <div>
+      {/* Input for todo */}
+      <TodoInput addTodo={addTodo} />
+       {/* Todo list */}
+      <TodoList todos={todos} deleteTodo={deleteTodo} completeTodo={completeTodo}/>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
