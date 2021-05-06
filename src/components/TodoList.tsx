@@ -11,11 +11,11 @@ interface Props {
 const StyledList = styled.li`
   list-style: none;
   letter-spacing: 1px;
-  border: 1px solid #f77777;
+  border: 1px solid ${props => props.theme.primaryColor};
   border-radius: 5px;
   padding: 10px;
   width: 500px;
-  background-color: white;
+  background-color: ${props => props.theme.backgroundColor};
   text-align: center;
   font-size: 24px;
   margin-bottom: 5px;
@@ -28,31 +28,31 @@ const StyledCompleteButton = styled.button<{ completed: boolean }>`
   line-height: 30px;
   min-width: 150px;
   text-align: center;
-  border: 1px solid #f77777;
+  border: 1px solid ${props => props.theme.primaryColor};
   border-radius: 5px;
-  color: ${(props) => (props.completed ? "white" : "black")};
+  color: ${(props) => (props.completed ? props.theme.textColorPrimary : props.theme.textColorSecondary)};
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   font-size: 14px;
-  background-color: ${(props) => (props.completed ? "#FD310F" : "white")};
+  background-color: ${(props) => (props.completed ? props.theme.primaryColor : props.theme.textColorPrimary)};
 `;
 const StyledDeleteButton = styled.button`
   line-height: 30px;
   min-width: 50px;
   text-align: center;
-  border: 1px solid #f77777;
+  border: 1px solid ${props => props.theme.primaryColor};
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   font-size: 24px;
-  background-color: white;
+  background-color: ${props => props.theme.textColorPrimary};
 `;
 
 const StyledText = styled.button`
   line-height: 30px;
   letter-spacing: 1px;
   width: 300px;
-  background-color: white;
+  background-color: ${props => props.theme.textColorPrimary};
   border: none;
 `;
 

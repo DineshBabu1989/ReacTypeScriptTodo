@@ -11,9 +11,9 @@ const StyledButton = styled.button`
   line-height: 50px;
   min-width: 150px;
   text-align: center;
-  background-color: #FD310F;
+  background-color: ${props => props.theme.primaryColor};
   border-radius: 5px;
-  color: #fff;
+  color:${props => props.theme.textColorPrimary};
   border: 0;
   cursor: pointer;
   box-shadow: 0 0 5px rgb(0 0 0 / 50%);
@@ -21,21 +21,21 @@ const StyledButton = styled.button`
   font-size: 18px;
 
   &:disabled {
-    background-color: #e4ada4
+    background-color: ${props => props.theme.primaryColor};
   }
 `
 const StyledInput = styled.input`
-  color: #333;
+  color: ${props => props.theme.textColorSecondary};
   width: 300px;
   box-sizing: border-box;
   letter-spacing: 1px;
   border: 0;
   padding: 7px 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${props => props.theme.borderBottom};
 
   &:focus-visible{
     outline: none;
-    border-bottom: 1px solid #FD310F;
+    border-bottom: 1px solid ${props => props.theme.primaryColor};
   }
 `;
 
