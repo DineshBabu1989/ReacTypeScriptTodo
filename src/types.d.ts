@@ -10,3 +10,5 @@ export type DeleteTodo = (index: number) => void;
 export type CompleteTodo = (index: number) => void;
 
 export type ToggleTodo = (selectedTodo: Todo) => void;
+
+export type ChangeTheme = () => void;

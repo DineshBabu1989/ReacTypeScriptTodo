@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   font-size: 18px;
 
   &:disabled {
-    background-color: ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.secondaryColor};
   }
 `
 const StyledInput = styled.input`
@@ -32,6 +32,7 @@ const StyledInput = styled.input`
   border: 0;
   padding: 7px 0;
   border-bottom: 1px solid ${props => props.theme.borderBottom};
+  background-color: transparent;
 
   &:focus-visible{
     outline: none;

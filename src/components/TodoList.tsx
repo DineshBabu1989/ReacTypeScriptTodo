@@ -34,7 +34,8 @@ const StyledCompleteButton = styled.button<{ completed: boolean }>`
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   font-size: 14px;
-  background-color: ${(props) => (props.completed ? props.theme.primaryColor : props.theme.textColorPrimary)};
+  background-color: ${(props) => (props.completed ? props.theme.primaryColor : props.theme.backgroundColor)};
+  margin-right: 5px;
 `;
 const StyledDeleteButton = styled.button`
   line-height: 30px;
@@ -45,15 +46,18 @@ const StyledDeleteButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   font-size: 24px;
-  background-color: ${props => props.theme.textColorPrimary};
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.textColorSecondary};
 `;
 
-const StyledText = styled.button`
+const StyledText = styled.div`
   line-height: 30px;
   letter-spacing: 1px;
   width: 300px;
-  background-color: ${props => props.theme.textColorPrimary};
+  background-color: transparent;
   border: none;
+  color:${props => props.theme.textColorSecondary};
+  font-size: 14px;
 `;
 
 const StyledListContainer = styled.ul`
