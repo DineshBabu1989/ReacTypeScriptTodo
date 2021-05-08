@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
-  backgroundColor: 'white', // body
+  backgroundColor: '#fff', // body
   primaryColor: '#ec452a', // button and border
   secondaryColor: '#e4ada4', // faded button
   textColorPrimary: 'white',// text inside large button

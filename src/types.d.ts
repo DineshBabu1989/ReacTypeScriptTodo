@@ -1,6 +1,11 @@
 export interface Todo {
-  text: string,
-  completed: boolean
+  text: string;
+  completed: boolean;
+}
+
+export interface ValidationMessage {
+  error: boolean;
+  message: string;
 }
 
 export type AddTodo = (text: string) => void;
