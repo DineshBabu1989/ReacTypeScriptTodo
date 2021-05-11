@@ -37,18 +37,29 @@ const StyledInput = styled.input`
   border-bottom: 1px solid ${(props) => props.theme.borderBottom};
   transition: border-bottom 0.3s ease-in-out;
   background-color: transparent;
-
+ 
   &:focus-visible {
     outline: none;
     border-bottom: 1px solid ${(props) => props.theme.primaryColor};
   }
 `;
 
-const StyledInputWrapper = styled.div`
+const StyledLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  color: ${(props) => props.theme.primaryColor};
+`;
+
+const StyledWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 10px;
+  }
 `;
 
 const StyledValidationMessage = styled.div`
@@ -75,9 +86,11 @@ const TodoInput: React.FC<Props> = ({ addTodo }) => {
   };
 
   return (
-    <StyledInputWrapper>
+    <StyledWrapper>
       <div>
-        <StyledInput type="text" value={text} onChange={handleOnChange} />
+        <StyledLabel htmlFor="todo">Todo: 
+          <StyledInput type="text" value={text} name="todo" onChange={handleOnChange} />
+        </StyledLabel>
         {validation.error && (
           <StyledValidationMessage>
             {validation.message}
@@ -87,7 +100,7 @@ const TodoInput: React.FC<Props> = ({ addTodo }) => {
       <StyledButton onClick={handleSubmit} disabled={!text.trim()}>
         Add todo
       </StyledButton>
-    </StyledInputWrapper>
+    </StyledWrapper>
   );
 };
 

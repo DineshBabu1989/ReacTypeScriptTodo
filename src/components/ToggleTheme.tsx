@@ -16,6 +16,7 @@ const StyledOuterButton = styled.button`
   position: relative;
   cursor: pointer;
   margin: 5px;
+  color: transparent;
 `;
 
 const StyledInnerHandle = styled.div<{selectedTheme: string}>`
@@ -28,7 +29,6 @@ const StyledInnerHandle = styled.div<{selectedTheme: string}>`
     top: '1px',
     right: '1px',
     transition: 'all .5s cubic-bezier(.23,1,.32,1) 0ms'
-
   }) : ({
     position: 'absolute',
     top: '1px',
@@ -40,6 +40,7 @@ const StyledInnerHandle = styled.div<{selectedTheme: string}>`
 const ToggleTheme: React.FC<Props> = ({ toggleTheme, selectedTheme }) => {
   return (
     <StyledOuterButton onClick={toggleTheme}>
+      toggle theme
       <StyledInnerHandle selectedTheme={selectedTheme}></StyledInnerHandle>
     </StyledOuterButton>
   );

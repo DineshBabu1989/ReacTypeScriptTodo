@@ -2,8 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
   backgroundColor: '#fff', // body
-  primaryColor: '#ec452a', // button and border
-  secondaryColor: '#e4ada4', // faded button
+  primaryColor: '#3f20ba', // button and border
+  secondaryColor: '#9b8ade', // faded button
   textColorPrimary: 'white',// text inside large button
   textColorSecondary: 'black', // text inside todo block
   borderBottom: '#ccc' // grey border
