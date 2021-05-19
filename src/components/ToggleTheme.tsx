@@ -19,22 +19,25 @@ const StyledOuterButton = styled.button`
   color: transparent;
 `;
 
-const StyledInnerHandle = styled.div<{selectedTheme: string}>`
+const StyledInnerHandle = styled.div<{ selectedTheme: string }>`
   width: 20px;
   height: 20px;
-  background-color: ${(props) => props.theme.primaryColor};;
+  background-color: ${(props) => props.theme.primaryColor};
   border-radius: 50%;
-  ${props => props.selectedTheme === 'dark' ? ({
-    position: 'absolute',
-    top: '1px',
-    right: '1px',
-    transition: 'all .5s cubic-bezier(.23,1,.32,1) 0ms'
-  }) : ({
-    position: 'absolute',
-    top: '1px',
-    left: '1px',
-    transition: 'all .5s cubic-bezier(.23,1,.32,1) 0ms'
-  })};
+  ${(props) =>
+    props.selectedTheme === "dark"
+      ? {
+          position: "absolute",
+          top: "1px",
+          right: "1px",
+          transition: "all .5s cubic-bezier(.23,1,.32,1) 0ms",
+        }
+      : {
+          position: "absolute",
+          top: "1px",
+          left: "1px",
+          transition: "all .5s cubic-bezier(.23,1,.32,1) 0ms",
+        }};
 `;
 
 const ToggleTheme: React.FC<Props> = ({ toggleTheme, selectedTheme }) => {

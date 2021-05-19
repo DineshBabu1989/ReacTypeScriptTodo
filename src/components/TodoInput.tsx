@@ -37,7 +37,7 @@ const StyledInput = styled.input`
   border-bottom: 1px solid ${(props) => props.theme.borderBottom};
   transition: border-bottom 0.3s ease-in-out;
   background-color: transparent;
- 
+
   &:focus-visible {
     outline: none;
     border-bottom: 1px solid ${(props) => props.theme.primaryColor};
@@ -55,7 +55,7 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top: 10px;
@@ -69,9 +69,10 @@ const StyledValidationMessage = styled.div`
 
 const TodoInput: React.FC<Props> = ({ addTodo }) => {
   const [text, setText] = useState<string>("");
-  const [validation, setValidationMsg] = useState<ValidationMessage>(
-    { error: false, message: "valid string" }
-  );
+  const [validation, setValidationMsg] = useState<ValidationMessage>({
+    error: false,
+    message: "valid string",
+  });
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const validatorResponse = emptyStringValidator(e.target.value);
@@ -88,8 +89,14 @@ const TodoInput: React.FC<Props> = ({ addTodo }) => {
   return (
     <StyledWrapper>
       <div>
-        <StyledLabel htmlFor="todo">Todo: 
-          <StyledInput type="text" value={text} name="todo" onChange={handleOnChange} />
+        <StyledLabel htmlFor="todo">
+          Todo:
+          <StyledInput
+            type="text"
+            value={text}
+            name="todo"
+            onChange={handleOnChange}
+          />
         </StyledLabel>
         {validation.error && (
           <StyledValidationMessage>

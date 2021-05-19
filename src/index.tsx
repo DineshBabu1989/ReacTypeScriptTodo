@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import ToggleTheme from './components/ToggleTheme'
+import ToggleTheme from "./components/ToggleTheme";
 import { Todo, AddTodo, DeleteTodo, CompleteTodo, ChangeTheme } from "./types";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
@@ -37,42 +37,42 @@ const App = () => {
     todo.completed = !todo.completed;
     setTodos([...todos]);
   };
-  
+
   /**
    * Toggle them on a click event
    */
   const toggleTheme: ChangeTheme = (): void => {
-    (theme === "light") ? setMode('dark') : setMode('light');
+    theme === "light" ? setMode("dark") : setMode("light");
   };
 
   /**
    * Set selected theme to the local state and local storage
    */
-  const setMode = (mode:string): void => {
-    window.localStorage.setItem('theme', mode);
+  const setMode = (mode: string): void => {
+    window.localStorage.setItem("theme", mode);
     setTheme(mode);
-  }
-  
+  };
+
   /**
    * Look for stored theme in local storage when the app loads
    */
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme');
+    const localTheme = window.localStorage.getItem("theme");
     localTheme && setTheme(localTheme);
   }, []);
 
   return (
     <div>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-         <ToggleTheme toggleTheme={toggleTheme} selectedTheme={theme}/> 
-          {/* Input for todo */}
-          <TodoInput addTodo={addTodo} />
-          {/* Todo list */}
-          <TodoList
-            todos={todos}
-            deleteTodo={deleteTodo}
-            completeTodo={completeTodo}
-          />
+        <ToggleTheme toggleTheme={toggleTheme} selectedTheme={theme} />
+        {/* Input for todo */}
+        <TodoInput addTodo={addTodo} />
+        {/* Todo list */}
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          completeTodo={completeTodo}
+        />
         <MyGlobalStyle />
       </ThemeProvider>
     </div>

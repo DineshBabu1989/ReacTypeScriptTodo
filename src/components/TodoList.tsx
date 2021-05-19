@@ -79,7 +79,7 @@ const StyledListContainer = styled.ul`
 
 const StyledControlsWrapper = styled.div`
   display: flex;
-  
+
   @media (max-width: 768px) {
     display: flex;
     width: 100%;
